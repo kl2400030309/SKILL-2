@@ -16,14 +16,14 @@ public class ProductDAO {
         session.close();
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(Long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Product product = session.get(Product.class, id);
         session.close();
         return product;
     }
 
-    public void updateProduct(int id, double price, int quantity) {
+    public void updateProduct(Long id, Double price, Integer quantity) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
@@ -37,7 +37,7 @@ public class ProductDAO {
         session.close();
     }
 
-    public void deleteProduct(int id) {
+    public void deleteProduct(Long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
